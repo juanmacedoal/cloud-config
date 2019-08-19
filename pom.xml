@@ -7,24 +7,17 @@
   <modelVersion>4.0.0</modelVersion>
 
   <!-- PROJECT DEFINITION -->
-  <groupId>com.vector.vac</groupId>
-  <artifactId>vac-config</artifactId>
+  <groupId>com</groupId>
+  <artifactId>cloud-config</artifactId>
   <version>0.0.2-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>vac-config</name>
-  <description>Cashlight Cloud Configuration Server</description>
-
-  <!-- PARENT -->
-  <parent>
-    <groupId>com.vector.vac</groupId>
-    <artifactId>vac-parent</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
-  </parent>
+  <name>cloud-config</name>
+  <description>Cloud Configuration Server</description>
 
   <!-- PROPERTIES -->
   <properties>
     <!-- Application -->
-    <application.name>vac-config</application.name>
+    <application.name>cloud-config</application.name>
     <build.root.directory>${basedir}/target</build.root.directory>
     <classes.directory>/${application.name}/WEB-INF/classes</classes.directory>
     <config.folder>src/main/resources</config.folder>
@@ -51,12 +44,12 @@
     <repository>
       <id>maven-s3-release-repo</id>
       <name>AWS S3 Release Repository</name>
-      <url>http://vac-artifacts.s3-website-eu-west-1.amazonaws.com/release</url>
+      <url></url>
     </repository>
     <repository>
       <id>maven-s3-snapshots-repo</id>
       <name>AWS S3 Snapshots Repository</name>
-      <url>http://vac-artifacts.s3-website-eu-west-1.amazonaws.com/snapshots</url>
+      <url></url>
     </repository>
   </repositories>
 
@@ -81,36 +74,6 @@
       <artifactId>spring-cloud-starter-eureka</artifactId>
     </dependency>
 
-    <!-- Cashlight -->
-    <dependency>
-      <groupId>com.vector.vac</groupId>
-      <artifactId>vac-common</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.vector.vac</groupId>
-      <artifactId>vac-common-model</artifactId>
-      <exclusions>
-        <exclusion>
-          <groupId>com.fasterxml.jackson.dataformat</groupId>
-          <artifactId>jackson-dataformat-xml</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.springframework.data</groupId>
-          <artifactId>spring-data-mongodb</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-
-    <!-- Testing -->
-    <dependency>
-      <groupId>com.vector.vac</groupId>
-      <artifactId>vac-error</artifactId>
-    </dependency>        
-    <dependency>
-      <groupId>com.vector.vac</groupId>
-      <artifactId>vac-test</artifactId>
-      <scope>test</scope>
-    </dependency>
 
   </dependencies>
 

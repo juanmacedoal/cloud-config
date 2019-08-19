@@ -1,4 +1,4 @@
-# Cloud Server vac-config
+# Cloud Server
 
 ## Description
 
@@ -6,7 +6,6 @@ This is the cloud configuration server server
 
 ## Configurations 
 
-The cloud configurations are loaded from the AWS service Code Commit:
 
 ```yml
 spring:    
@@ -17,9 +16,9 @@ spring:
       ...
       server:
         git:
-          uri: ${GITCONFIG_URI:https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/vac-configurations}
-          username: ${GITCONFIG_USERNAME:dromeroc@vectoritcgroup.com+1-at-156104699665}
-          password: ${GITCONFIG_PASSWORD:jemP/mHckTtYbqPMRLFPgCLR0stv7GAwkrzo+JVDAjM=}
+          uri: ${GITCONFIG_URI:https://git-/vac-configurations}
+          username: ${GITCONFIG_USERNAME:}
+          password: ${GITCONFIG_PASSWORD:}
           default-label: ${GITCONFIG_LABEL:develop}                                
           timeout: 60
 ```
@@ -27,7 +26,7 @@ spring:
 To use it set the mapping in the hosts file
 
 ```
-127.0.0.1       vac-config
+127.0.0.1   
 ```
 
 ## How to run

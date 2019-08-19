@@ -1,6 +1,6 @@
 FROM openjdk:8-jre-alpine
 
-MAINTAINER support@cashlight.io
+MAINTAINER juanmacedoal@gmail.com
 RUN apk add --update curl && rm -rf /var/cache/apk/*    
 RUN echo "Creating vac-config service..."
 RUN echo "Deleting artifacts directory..."
