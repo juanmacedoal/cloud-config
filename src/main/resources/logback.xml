@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="10000">
+
+    <include resource="logback-vac.xml" />
+                       
+    <springProfile name="def">
+        <logger name="com.vector.vac" level="DEBUG" />    
+        <logger name="org.springframework" level="INFO" />      
+        <logger name="com.netflix" level="INFO" />        
+    </springProfile>
+    <springProfile name="loc">
+        <logger name="com.vector.vac" level="DEBUG" />    
+        <logger name="org.springframework" level="INFO"/>       
+        <logger name="com.netflix" level="INFO" />   
+    </springProfile>
+    <springProfile name="devaws">
+        <logger name="com.vector.vac" level="INFO" />  
+        <logger name="org.springframework" level="INFO" />       
+        <logger name="com.netflix" level="INFO" />     
+    </springProfile>
+    
+</configuration>
