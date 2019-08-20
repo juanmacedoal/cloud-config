@@ -7,7 +7,7 @@
 	<!-- *************************************************************************** -->
 	
 	<entry key="apidoc.title">Gateway API REST</entry>
-	<entry key="apidoc.package">com.vector.vac</entry>
+	<entry key="apidoc.package">com</entry>
 	
 	<entry key="apidoc.description">Gateway multiple services.</entry>
 

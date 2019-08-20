@@ -24,7 +24,7 @@ phases:
     commands:
       - echo Entered the build phase...
       - echo Build started on `date`
-      - rm -rf /root/.m2/repository/com/vector/
+      - rm -rf /root/.m2/repository/com/
       - mvn test
       - mvn package
       - echo Building the Docker image...          

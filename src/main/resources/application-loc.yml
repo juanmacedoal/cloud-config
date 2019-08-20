@@ -52,7 +52,7 @@ spring:
 # --------------------------------------------
 # CUSTOM CONFIGURATIONS 
 # --------------------------------------------
-vac: 
+custom: 
   logger:
     enabled: false   
   common:
