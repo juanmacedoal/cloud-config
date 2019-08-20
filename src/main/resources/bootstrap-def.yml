@@ -3,7 +3,7 @@
 # -------------------------------------------- 
 spring:  
   application:
-    name: vac-config
+    name: cloud-config
     
 # --------------------------------------------
 # SPRING CLOUD CONFIGURATION
@@ -19,7 +19,7 @@ spring:
       allow-override: false
       server:
         git:
-          uri: ${GITCONFIG_URI:https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/vac-configurations}     
+          uri: ${GITCONFIG_URI:https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/cloud-configurations}     
           username: ${GITCONFIG_USERNAME:support@cashlight.io-at-156104699665}
           password: ${GITCONFIG_PASSWORD:UOauvpdNEM/qbKUXJVqZpAy0VtKR24vYwF7shGvVC9I=}     
           default-label: ${GITCONFIG_LABEL:master}                                
