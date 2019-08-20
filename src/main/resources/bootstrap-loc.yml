@@ -19,17 +19,14 @@ spring:
       allow-override: false
       server:
         git:
-          uri: ${GITCONFIG_URI:https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/cloud-configurations}     
-          username: ${GITCONFIG_USERNAME:support@cashlight.io-at-156104699665}
-          password: ${GITCONFIG_PASSWORD:UOauvpdNEM/qbKUXJVqZpAy0VtKR24vYwF7shGvVC9I=}     
+          uri: ${GITCONFIG_URI:https://github.com/juanmacedoal/cloud-configurations}     
+          username: ${GITCONFIG_USERNAME:}
+          password: ${GITCONFIG_PASSWORD:}     
           default-label: ${GITCONFIG_LABEL:master}                                
           timeout: 60
           search-paths: 
             - back/loc
             - front     
-            - front/workstation
-            - front/console   
-            - front/simulator/cards
           
 # --------------------------------------------
 # EUREKA CONFIGURATION

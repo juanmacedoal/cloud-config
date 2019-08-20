@@ -16,10 +16,10 @@ spring:
       ...
       server:
         git:
-          uri: ${GITCONFIG_URI:https://git-/vac-configurations}
+          uri: ${GITCONFIG_URI:https://git-/cloud-configurations}
           username: ${GITCONFIG_USERNAME:}
           password: ${GITCONFIG_PASSWORD:}
-          default-label: ${GITCONFIG_LABEL:develop}                                
+          default-label: ${GITCONFIG_LABEL:master}                                
           timeout: 60
 ```
 
