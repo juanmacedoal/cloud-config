@@ -1,116 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project
-  xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
->
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <!-- PROJECT DEFINITION -->
-  <groupId>com</groupId>
-  <artifactId>cloud-config</artifactId>
-  <version>0.0.2-SNAPSHOT</version>
-  <packaging>jar</packaging>
-  <name>cloud-config</name>
-  <description>Cloud Configuration Server</description>
+	<!-- PROJECT DEFINITION -->
+	<groupId>com</groupId>
+	<artifactId>cloud-config</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>cloud-config</name>
+	<description>Cloud Configuration Server</description>
 
-  <!-- PROPERTIES -->
-  <properties>
-    <!-- Application -->
-    <application.name>cloud-config</application.name>
-    <build.root.directory>${basedir}/target</build.root.directory>
-    <classes.directory>/${application.name}/WEB-INF/classes</classes.directory>
-    <config.folder>src/main/resources</config.folder>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.3.RELEASE</version>
+	</parent>
 
-    <!-- Encoding -->
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	<!-- PROPERTIES -->
+	<properties>
+		<!-- Application -->
+		<application.name>cloud-config</application.name>
+		<build.root.directory>${basedir}/target</build.root.directory>
+		<classes.directory>/${application.name}/WEB-INF/classes</classes.directory>
+		<config.folder>src/main/resources</config.folder>
 
-    <!-- JAVA version -->
-    <java.version>1.8</java.version>
+		<!-- Encoding -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <!-- Dependencies version -->
+		<!-- JAVA version -->
+		<java.version>1.8</java.version>
+		<spring-cloud.version>Greenwich.SR1</spring-cloud.version>
 
-  </properties>
+		<!-- Dependencies version -->
 
-
-  <!-- MAVEN -->
-  <prerequisites>
-    <maven>3.3.3</maven>
-  </prerequisites>
-
-  <!-- REPOSITORIES -->
-  <repositories>
-    <repository>
-      <id>maven-s3-release-repo</id>
-      <name>AWS S3 Release Repository</name>
-      <url></url>
-    </repository>
-    <repository>
-      <id>maven-s3-snapshots-repo</id>
-      <name>AWS S3 Snapshots Repository</name>
-      <url></url>
-    </repository>
-  </repositories>
-
-  <!-- DEPENDENCIES -->
-  <dependencies>
-
-    <!-- Spring Cloud -->
-    <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-config-server</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-config-monitor</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-eureka</artifactId>
-    </dependency>
+	</properties>
 
 
-  </dependencies>
+	<!-- MAVEN -->
+	<prerequisites>
+		<maven>3.3.3</maven>
+	</prerequisites>
 
-  <!-- BUILD -->
-  <build>
 
-    <!-- BUILD: WAR settings -->
-    <finalName>${application.name}</finalName>
-    <outputDirectory>${build.root.directory}${classes.directory}</outputDirectory>
+	<!-- DEPENDENCIES -->
+	<dependencies>
 
-    <plugins>
+		<!-- Spring Cloud -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
-      <!-- MAVEN compiler plugin -->
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
-          <encoding>${project.build.sourceEncoding}</encoding>
-        </configuration>
-      </plugin>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
-      <!-- MAVEN resources plugin -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-resources-plugin</artifactId>
-        <configuration>
-          <encoding>${project.build.sourceEncoding}</encoding>
-        </configuration>
-      </plugin>
 
-      <!-- MAVEN Spring boot plugin -->
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-      </plugin>
+	<!-- BUILD -->
+	<build>
 
-    </plugins>
-  </build>
+		<!-- BUILD: WAR settings -->
+		<finalName>${application.name}</finalName>
+		<outputDirectory>${build.root.directory}${classes.directory}</outputDirectory>
+
+		<plugins>
+
+			<!-- MAVEN compiler plugin -->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+
+			<!-- MAVEN resources plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+
+			<!-- MAVEN Spring boot plugin -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+		</plugins>
+	</build>
 </project>
