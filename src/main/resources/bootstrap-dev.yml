@@ -19,14 +19,19 @@ spring:
       allow-override: false
       server:
         git:
-          uri: ${GITCONFIG_URI:https://github.com/juanmacedoal/cloud-configurations}     
-          username: ${GITCONFIG_USERNAME:}
-          password: ${GITCONFIG_PASSWORD:}     
+          uri: ${GITCONFIG_URI:https://github.com/juanmacedoal/cloud-configuration}     
+          username: ${GITCONFIG_USERNAME:juanmacedoal}
+          password: ${GITCONFIG_PASSWORD:18443390juan}     
           default-label: ${GITCONFIG_LABEL:master}                                
           timeout: 60
+          proxy:
+            https:
+              host: alca.proxy.corp.sopra
+              port: 8080
           search-paths: 
+            - back/loc
             - back/dev
-            - front     
+            - front      
           
 # --------------------------------------------
 # EUREKA CONFIGURATION

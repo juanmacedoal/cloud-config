@@ -24,7 +24,7 @@ spring:
   jmx:
     default-domain: cloud.config.server
   aop: 
-    proxy-target-class: false        
+    proxy-target-class: true        
   profiles: 
     active: def   
         
