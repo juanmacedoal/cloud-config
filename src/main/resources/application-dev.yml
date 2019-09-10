@@ -5,38 +5,41 @@ server:
   port: 8080
   
 # --------------------------------------------
-# SPRING SECURITY CONFIGURATION 
+# ROUTING ACTUATOR CONFIGURATION 
 # --------------------------------------------    
 management:
-  server:
-    servlet:
-      context-path: /admin
-    
+  endpoints:
+    gateway:
+      enabled: true
+    web:
+      base-path: /manage
+
 # --------------------------------------------
 # LOG CONFIGURATION
-# --------------------------------------------    
+# --------------------------------------------  
 logging:
-   file: ${spring.application.name}.log
-   path: /var/log   
-   pattern: 
-     console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"  
+  level:
+    org:
+      springframework: DEBUG
+  pattern: 
+    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
     
 # --------------------------------------------
 # SPRING APP CONFIGURATION
 # --------------------------------------------    
-spring:    
+spring:
   jmx:
-    default-domain: cloud.config.server
+    enabled: false
   aop: 
     proxy-target-class: true        
   profiles: 
-    active: dev  
-
+    active: loc   
+            
 # --------------------------------------------
 # MQ CONFIGURATION
 # --------------------------------------------             
   rabbitmq:
-    host: ${RABBIT_URI:172.21.1.251}
+    host: ${RABBIT_URI:127.0.0.1}
     port: ${RABBIT_PORT:5672}
     username: ${RABBIT_USER:guest}
     password: ${RABBIT_PASS:guest}
