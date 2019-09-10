@@ -9,8 +9,6 @@ server:
 # --------------------------------------------    
 management:
   endpoints:
-    gateway:
-      enabled: true
     web:
       base-path: /manage
 
